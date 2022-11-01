@@ -1,0 +1,37 @@
+﻿@page "/counter"
+@using Demo_on_Razor_Syntax.Helpers
+@using Demo_on_Razor_Syntax.Models
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Class Demo</h1>
+
+<p>Original Value - @title</p>
+
+<p>Lower Case Convert - @StringUtilities.ConvertToUpper(title) </p>
+
+<p>Title Case Convert - @StringUtilityExtensions.ToTitleCase(title) </p>
+
+
+<h3>Product Details</h3>
+<div>
+	<p>Product Code : @products.ProductCode</p>
+	<p>Product Name : @products.ProductName</p>
+	<p>Release Date : @products.LaunchDate.ToString("dd MMM yyyy")</p>
+</div>
+
+@code {
+	string title = "blazor framework by microsoft";
+
+	public class StringUtilities
+	{
+		public static string ConvertToUpper(string value) => value.ToUpper();
+	}
+
+	Products products = new Products()
+	{
+		ProductCode = "P0001",
+		ProductName = "IPhone 13",
+		LaunchDate = new DateTime(2021, 9, 24)
+	};
+}

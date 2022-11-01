@@ -1,0 +1,29 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h2>Welcome to the World of Blazor Frameworks....</h2>
+
+<h3>@Title</h3>
+<p>I am @name </p>
+
+<p>Using Method -  I am @ConvertToUpper(name) </p>
+
+<p> Sum of numbers 10 and 20 = @(10 + 20)</p>
+
+<button @onclick="@( ()=> Console.WriteLine("Button Click Event Fired"))">Click Me</button>
+
+<button @onclick="@WriteConsoleLog">Click Button (Method)</button>
+
+@code {
+	string name = "Debasis Saha";
+	string Title = "Blazor Learning Series";
+
+	string ConvertToUpper(string value) => value.ToUpper();
+
+	void WriteConsoleLog()
+	{
+		Console.WriteLine("Button Click Event Fired using Function");
+	}
+
+}
