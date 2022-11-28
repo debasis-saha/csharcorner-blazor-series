@@ -2,8 +2,42 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<Basic_Blazor_Components.Client.Shared.Components.HelloComponent PersonName="Debasis Saha"></Basic_Blazor_Components.Client.Shared.Components.HelloComponent>
 
-Welcome to your new app.
+<br />
+<TestComponent></TestComponent>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<BookList BookInfos="BookList"></BookList>
+
+@code {
+
+    public List<Books> BookList { get; set; }
+
+    protected override void OnInitialized()
+    {
+        BookList = new List<Books>();
+        BookList.Add(
+            new Books()
+                {
+                    BookCode = "ISBN000801",
+                    BookName = "Never Lie",
+                    AuthorName = "Freida McFadden",
+                    Category = "Triller",
+                    AboutInfo = "Newlyweds Tricia and Ethan are searching for the house of their dreams. But when they visit the remote manor that once belonged to Dr. Adrienne Hale, a renowned psychiatrist who vanished without a trace four years earlier, a violent winter storm traps them at the estate… with no chance of escape until the blizzard comes to an end.",
+                    CoverImageUrl = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1661428846l/62080187._SY475_.jpg",
+                    Ratings = 4.33
+                });
+
+        BookList.Add(
+                new Books()
+                    {
+                        BookCode = "ISBN001781",
+                        BookName = "The Escape Artist: The Man Who Broke Out of Auschwitz to Warn the World",
+                        AuthorName = "Jonathan Freedland",
+                        Category = "Biography",
+                        AboutInfo = "In a book that is part thrilling adventure, part exploration of some of the darkest secrets of the Holocaust, award-winning journalist and best-selling novelist Jonathan Freedland uncovers the extraordinary story of the first Jew to break out of Auschwitz, a man who was determined to warn the world—and pass on a truth too few were willing to hear.",
+                        CoverImageUrl = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1647444786l/60194141.jpg",
+                        Ratings = 4.51
+                    });
+    }
+}

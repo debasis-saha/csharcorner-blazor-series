@@ -1,0 +1,35 @@
+﻿<h1 style="color:blue;font-weight:bold;">Book List</h1>
+
+@if (BookInfos == null || BookInfos.Count == 0)
+{
+    <text>No Data founds..</text>
+}
+else
+{
+    @foreach (var book in BookInfos)
+    {
+        <table cellpadding="20">
+            <tr>
+                <td style="width:15%;">
+                    <img src="@book.CoverImageUrl" style="height:200px;width:200px;padding-left:10px;" />
+                </td>
+                <td style="width:70%;">
+                    <h2 style="font-weight:bolder">@book.BookName</h2>
+                    <h4>By @book.AuthorName</h4>
+                    <p>
+                        @book.AboutInfo
+                    </p>
+                </td>
+            </tr>
+        </table>
+    }
+}
+
+
+
+@code {
+    [Parameter]
+    public List<Books> BookInfos { get; set; }
+
+
+}
