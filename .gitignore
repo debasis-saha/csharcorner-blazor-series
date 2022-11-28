@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Episode-03/Basic_Blazor_Components/Basic_Blazor_Components/Client/bin/Debug/net7.0
+/Episode-03/Basic_Blazor_Components/Basic_Blazor_Components/Client/obj
+/Episode-03/Basic_Blazor_Components/Basic_Blazor_Components/Server/bin/Debug/net7.0
+/Episode-03/Basic_Blazor_Components/Basic_Blazor_Components/Server/obj
+/Episode-03/Basic_Blazor_Components/Basic_Blazor_Components/Shared/bin/Debug/net7.0
+/Episode-03/Basic_Blazor_Components/Basic_Blazor_Components/Shared/obj
