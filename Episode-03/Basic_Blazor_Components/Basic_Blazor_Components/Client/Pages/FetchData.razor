@@ -1,47 +1,59 @@
 ﻿@page "/fetchdata"
-@using Basic_Blazor_Components.Shared
-@inject HttpClient Http
 
-<PageTitle>Weather forecast</PageTitle>
-
-<h1>Weather forecast</h1>
-
-<p>This component demonstrates fetching data from the server.</p>
-
-@if (forecasts == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+<BookListWithEvents BookInfos="BookList"></BookListWithEvents>
 
 @code {
-    private WeatherForecast[]? forecasts;
+    public List<Books> BookList { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+        BookList = new List<Books>();
+        BookList.Add(
+            new Books()
+                {
+                    BookCode = "ISBN000801",
+                    BookName = "Never Lie",
+                    AuthorName = "Freida McFadden",
+                    Category = "Triller",
+                    AboutInfo = "Newlyweds Tricia and Ethan are searching for the house of their dreams. But when they visit the remote manor that once belonged to Dr. Adrienne Hale, a renowned psychiatrist who vanished without a trace four years earlier, a violent winter storm traps them at the estate… with no chance of escape until the blizzard comes to an end.",
+                    CoverImageUrl = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1661428846l/62080187._SY475_.jpg",
+                    Ratings = 4.33
+                });
+
+        BookList.Add(
+                new Books()
+                    {
+                        BookCode = "ISBN001781",
+                        BookName = "The Escape Artist: The Man Who Broke Out of Auschwitz to Warn the World",
+                        AuthorName = "Jonathan Freedland",
+                        Category = "Biography",
+                        AboutInfo = "In a book that is part thrilling adventure, part exploration of some of the darkest secrets of the Holocaust, award-winning journalist and best-selling novelist Jonathan Freedland uncovers the extraordinary story of the first Jew to break out of Auschwitz, a man who was determined to warn the world—and pass on a truth too few were willing to hear.",
+                        CoverImageUrl = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1647444786l/60194141.jpg",
+                        Ratings = 4.51
+                    });
+
+        BookList.Add(
+                  new Books()
+                      {
+                          BookCode = "ISBN002781",
+                          BookName = "Maybe We'll Make It: A Memoir",
+                          AuthorName = "Margo Price",
+                          Category = "Biography",
+                          AboutInfo = "When Margo Price was nineteen years old, she dropped out of college and moved to Nashville to become a musician. She busked on the street, played open mics, and even threw out her TV so that she would do nothing but write songs. She met Jeremy Ivey, a fellow musician who would become her closest collaborator and her husband. But after working on their craft for more than a decade, Price and Ivey had no label, no band, and plenty of heartache.",
+                          CoverImageUrl = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1660444724l/60402664.jpg",
+                          Ratings = 4.38
+                      });
+
+        BookList.Add(
+                  new Books()
+                      {
+                          BookCode = "ISBN001334",
+                          BookName = "License to Travel: A Cultural History of the Passport",
+                          AuthorName = "Patrick Bixby",
+                          Category = "History",
+                          AboutInfo = "This surprising global history of an indispensable document reveals how the passport has shaped art, thought, and human experience while helping to define the modern world.",
+                          CoverImageUrl = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1662438868l/60551132.jpg",
+                          Ratings = 3.50
+                      });
     }
 }

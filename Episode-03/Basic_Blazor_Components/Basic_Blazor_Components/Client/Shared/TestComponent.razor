@@ -1,5 +1,11 @@
 ﻿<h3>Test Component</h3>
 
-@code {
+<input type="number" @bind="displayCount" />
 
+<br />
+<p>Current Value : @displayCount</p>
+
+
+@code {
+    public int displayCount = 0;
 }
